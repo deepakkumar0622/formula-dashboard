@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "tabulator-tables/dist/css/tabulator_simple.min.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+

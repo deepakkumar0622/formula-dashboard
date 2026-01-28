@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "formulaId": 1,
+    "name": "Rose Absolute",
+    "role": "Base",
+    "physicalChar": "Liquid",
+    "flash_point": "68°C",
+    "quantity": "30.0"
+  },
+  {
+    "id": 2,
+    "formulaId": 2,
+    "name": "Geranium Oil",
+    "role": "Base",
+    "physicalChar": "Liquid",
+    "flash_point": "53°C",
+    "quantity": "25.0"
+  },
+  {
+    "id": 3,
+    "formulaId": 2,
+    "name": "Citronellol",
+    "role": "Base",
+    "physicalChar": "Liquid",
+    "flash_point": "88°C",
+    "quantity": "50.0"
+  },
+  {
+    "id": 4,
+    "formulaId": 1,
+    "name": "Phenylethyl Alcohol",
+    "role": "Modifier",
+    "physicalChar": "Liquid",
+    "flash_point": "108°C",
+    "quantity": "40.0"
+  },
+  {
+    "id": 5,
+    "formulaId": 1,
+    "name": "Linalool",
+    "role": "Modifier",
+    "physicalChar": "Liquid",
+    "flash_point": "88°C",
+    "quantity": "10.0"
+  }
+]

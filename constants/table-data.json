@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Rose Accord V3",
+    "code": "FA-2025-001",
+    "type": "Fine Fragrance",
+    "version": "V3",
+    "class": "Parent Formula",
+    "status": "Draft",
+    "updated": "Jan 20,2025"
+  },
+  {
+    "id": 2,
+    "name": "Citrus Fresh Base",
+    "code": "FA-2025-002",
+    "type": "Fine Fragrance",
+    "version": "V2",
+    "class": "Sub Formula",
+    "status": "Versioned",
+    "updated": "Jan 25,2025"
+  }
+]
