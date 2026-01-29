@@ -31,7 +31,7 @@ export default function IngredientDetailRenderer(props: any) {
         <h3 className="font-semibold text-gray-700 text-sm">
           Ingredients for {formula.name}
         </h3>
-        <Badge title={"READ-ONLY"} />
+        <Badge title={"READ-ONLY"} type="" />
       </div>
 
       <div className="ag-theme-alpine h-48 w-full rounded overflow-hidden">

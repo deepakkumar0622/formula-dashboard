@@ -37,7 +37,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`h-full transition-all duration-300 ease-in-out overflow-hidden z-50 pointer-events-auto
+      className={`h-full fixed top-0 left-0 transition-all duration-300 ease-in-out overflow-hidden z-50 pointer-events-auto
   ${isOpen ? "w-64" : "w-20"}`}
     >
       <aside
