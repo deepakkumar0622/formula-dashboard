@@ -1,9 +1,9 @@
 import React from 'react'
-import Dashboard from './dashboard'
+import MastersPage from './master'
 
 function page() {
   return (
-    <Dashboard />
+    <MastersPage />
   )
 }
 

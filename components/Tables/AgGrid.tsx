@@ -49,7 +49,7 @@ const AgGrid = () => {
       );
 
       return {
-        ingredients: relatedIngredients, // 👈 PASS DATA HERE
+        ingredients: relatedIngredients,
       };
     };
   }, []);
