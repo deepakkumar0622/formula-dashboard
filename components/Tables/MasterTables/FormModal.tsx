@@ -9,7 +9,6 @@ type Props = {
 
 export default function FormModal({ type, data, onClose, onSave }: Props) {
   const [formData, setFormData] = useState(data);
-  console.log("FormModal data:", type);
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-[500px]">

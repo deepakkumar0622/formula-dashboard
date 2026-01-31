@@ -7,7 +7,7 @@ import ActionRenderer from "./ActionRenderer";
 import EditModal from "./FormModal";
 import "../../../lib/AgGrid";
 import FormModal from "./FormModal";
-// import theme from "./them";
+import { AgTheme } from "../Themes";
 
 type Props = {
   rowData: any[];
@@ -44,11 +44,14 @@ export default function AgGrid({
           rowData={rowData}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
+          getRowId={(params) => params.data.id.toString()}
+          // getRowClass={(params) => (params.data.deleted ? 'row-deleted' : '')}
+
           masterDetail={detailCellRendererParams ? true : false}
           detailRowHeight={260}
           animateRows={true}
           detailCellRendererParams={detailCellRendererParams}
-
+          theme={AgTheme}
 
           components={{
             actionRenderer: (props: any) => (

@@ -14,7 +14,7 @@ export default function FormulasPage() {
   const [create, setCreate] = useState(false);
   const defaultColDef = useMemo(
   () => ({
-    filter: true,
+    filter: false,
     editable: (params: any) =>
       params.data?.isEditing === true &&
       params.colDef.field !== "id",

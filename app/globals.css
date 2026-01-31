@@ -17,3 +17,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.row-deleted {
+  opacity: 0.5;                  
+  text-decoration: line-through; 
+  transition: all 0.3s ease;     
+}

@@ -1,0 +1,153 @@
+:root {
+  /* Fonts */
+  --font-family-base: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  --font-size-sm: 12px;
+  --font-size-md: 13px;
+  --font-size-lg: 14px;
+
+  /* Colors */
+  --color-bg: #ffffff;
+  --color-border: #e5e7eb;
+  --color-header-bg: #f9fafb;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+
+  /* Status colors */
+  --color-success-bg: #dcfce7;
+  --color-success-text: #047857;
+  --color-danger-bg: #fee2e2;
+  --color-danger-text: #b91c1c;
+
+  /* Actions */
+  --color-icon: #6b7280;
+  --color-icon-hover: #111827;
+
+  /* Spacing */
+  --cell-padding-y: 14px;
+  --cell-padding-x: 16px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+}
+
+/* TABLE WRAPPER */
+.table-wrapper,
+.tabulator {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+/* HEADER */
+.tabulator-header {
+  background: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabulator-col {
+  background: transparent;
+  border-right: none;
+}
+
+.tabulator-col-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--cell-padding-y) var(--cell-padding-x);
+}
+
+/* ROWS */
+.tabulator-row {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabulator-row:last-child {
+  border-bottom: none;
+}
+
+.tabulator-cell {
+  padding: var(--cell-padding-y) var(--cell-padding-x);
+  vertical-align: middle;
+}
+
+/* Ingredient name emphasis */
+.tabulator-cell[data-field="name"] {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* Muted text columns */
+.tabulator-cell[data-field="code"],
+.tabulator-cell[data-field="physicalState"],
+.tabulator-cell[data-field="flashPoint"],
+.tabulator-cell[data-field="updated"] {
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* STATUS BADGES */
+.status-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+}
+
+.status-active {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.status-deprecated {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+/* ACTION ICONS */
+.action-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.action-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-icon);
+  font-size: 15px;
+}
+
+.action-btn:hover {
+  color: var(--color-icon-hover);
+}
+
+/* SOFT DELETED ROW */
+.row-deleted {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .tabulator-cell {
+    padding: 10px 12px;
+  }
+
+  .tabulator-col-title {
+    font-size: 11px;
+  }
+}
+
+.tabulator-arrow {
+  display: none !important;
+}

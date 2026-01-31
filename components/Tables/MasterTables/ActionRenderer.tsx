@@ -11,6 +11,7 @@ export default function ActionRenderer(props: any) {
   const softDelete = () => {
     data.deleted = !data.deleted;
     api.applyTransaction({ update: [data] });
+    // api.refreshCells({ rowNodes: [api.getRowNode(data.id.toString())] });
   };
   const onEdit = (row: any) => {
     props.onEdit(row);
@@ -23,7 +24,7 @@ export default function ActionRenderer(props: any) {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 text-black flex gap-2  items-center  p-2 h-8 mt-1 rounded-lg   transition-all ease-in duration-200">
       <Pencil className="h-4 w-4 cursor-pointer" onClick={() => onEdit({ ...data })} />
       <Eye
         className="h-4 w-4 cursor-pointer"

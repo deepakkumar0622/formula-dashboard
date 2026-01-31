@@ -6,6 +6,8 @@ import { Search } from 'lucide-react';
 import IngredientsPage from '@/components/Tables/MasterTables/Ingredients/Ingredients';
 import FormulasPage from '@/components/Tables/MasterTables/Formulas/Formulas';
 import FormModal from '@/components/Tables/MasterTables/FormModal';
+import IngredientsTabulator from '@/components/Tables/MasterTables/Ingredients/IngredientsTabulator';
+import FormulasTabulator from '@/components/Tables/MasterTables/Formulas/FormulasTabulator';
 
 
 export default function MastersPage() {
@@ -13,14 +15,17 @@ export default function MastersPage() {
     'ingredients'
   );
   const [showForm, setShowForm] = useState(false);
+  const [showTabulator, setShowTabulator] = useState(true);
   const [formType, setFormType] = useState<'ingredient' | 'formula'>('ingredient');
-  const formula = {
-        "Ingredient Name" : "",
-        "Role" : "",
-        "Physical State" : "",
-        "Flash Point" : "",
-        "Qty"  : ""
-      }
+  const formula =  {
+    "name": "",
+    "code": "",
+    "type": "",
+    "version": "",
+    "class": "",
+    "status": "",
+    "updated": ""
+  }
   const ingredient = {
         "Ingredient Name" : "",
         "Role" : "",
@@ -38,7 +43,7 @@ export default function MastersPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-semibold">Masters</h1>
+        <h1 className="text-2xl font-semibold">Masters</h1>  
         <p className="text-sm text-gray-500">
           Central library of ingredients and reusable formulas.
         </p>
@@ -81,7 +86,7 @@ export default function MastersPage() {
             {showForm && 
             <FormModal
                       type={formType}
-                      data={formula}
+                      data={formType === 'ingredient' ? ingredient : formula}
                       onClose={() => setShowForm(false)}
                       onSave={() => setShowForm(false)}
                     />
@@ -122,9 +127,17 @@ export default function MastersPage() {
       {/* Content */}
       <div >
         {activeTab === 'ingredients' ? 
-        <IngredientsPage /> : 
-        <FormulasPage />}
+        showTabulator?
+        <IngredientsPage />:
+        <IngredientsTabulator />
+        : 
+        showTabulator?
+        <FormulasPage />:
+        <FormulasTabulator />
+        
+        }
       </div>
+      <button onClick={()=>{setShowTabulator(!showTabulator)}} className="ml-4 text-sm bg-gray-900 text-white px-2 py-1 rounded">Toggle View</button>
     </div>
   );
 }

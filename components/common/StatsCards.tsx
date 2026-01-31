@@ -1,3 +1,4 @@
+import { Badge } from "./Badges"
 
 export type StatItem = {
   label: string
@@ -20,24 +21,26 @@ export default function StatsCards({ state: stats }: Props) {
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="bg-white border border-gray-200 rounded-2xl p-6"
+          className="bg-white rounded-xl border border-gray-100 p-6 shadow-sm"
         >
           {/* Header */}
           <div className="flex items-center justify-between">
-            <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
               {stat.label}
             </p>
 
             {stat.badge && (
-              <span className="text-xs font-semibold px-2 py-1 rounded-md bg-yellow-100 text-yellow-700">
-                {stat.badge}
-              </span>
+              <Badge
+                label={stat.badge}
+                variant={stat.badge === "ACTIVE" ? "sent" : "default"}
+                className="uppercase text-[10px] px-2 py-0.5"
+              />
             )}
           </div>
 
           {/* Value + Trend */}
-          <div className="mt-4 flex items-center gap-2">
-            <p className="text-3xl font-semibold text-gray-900">
+          <div className="mt-3 flex items-center gap-3">
+            <p className="text-4xl font-semibold text-gray-900">
               {stat.value}
             </p>
 
@@ -45,13 +48,14 @@ export default function StatsCards({ state: stats }: Props) {
               <span
                 className={`flex items-center text-sm font-medium ${
                   stat.trendDirection === "down"
-                    ? "text-red-600"
-                    : "text-green-600"
+                    ? "text-red-500"
+                    : "text-green-500"
                 }`}
               >
-                {stat.trendDirection !== "down" && "↗"}
-                {stat.trendDirection === "down" && "↘"}
-                <span className="ml-1">{stat.trend}</span>
+                <span className="mr-1">
+                  {stat.trendDirection === "down" ? "↘" : "↗"}
+                </span>
+                {stat.trend}
               </span>
             )}
           </div>
@@ -67,3 +71,4 @@ export default function StatsCards({ state: stats }: Props) {
     </div>
   )
 }
+

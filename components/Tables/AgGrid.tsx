@@ -16,7 +16,7 @@ const AgGrid = () => {
         field: "name",
         headerName: "Formula Name",
         cellRenderer: "agGroupCellRenderer",
-        flex: 2, // 👈 takes 2x space of others
+        flex: 2, //takes 2x space of others
         minWidth: 220,
       },
       { field: "code", headerName: "Formula Code" },
