@@ -36,9 +36,13 @@ export default function Dashboard() {
 
   return (
     <div className="p-6 space-y-6">
+      <div>
+        <p className="text-2xl font-semibold">Greeting <span>User</span></p>
+        <p className="text-sm text-gray-500">3 formulas in progress • 2 awaiting results</p>
+      </div>
       <StatsCards
       state={stats} />
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <RecentFormulas />
         <MostUsedIngredients />
       </div>

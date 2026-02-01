@@ -1,3 +1,4 @@
+import { TrendingDown, TrendingUp } from "lucide-react"
 import { Badge } from "./Badges"
 
 export type StatItem = {
@@ -29,6 +30,30 @@ export default function StatsCards({ state: stats }: Props) {
               {stat.label}
             </p>
 
+            
+          </div>
+
+          {/* Value + Trend */}
+          <div className="mt-3 flex items-center justify-between gap-3">
+            <p className="text-4xl font-semibold text-gray-900">
+              {stat.value}
+            </p>
+
+            {stat.trend && (
+              <span
+                className={`flex items-center  text-sm font-medium ${
+                  stat.trendDirection === "down"
+                    ? "text-red-500"
+                    : "text-green-500"
+                }`}
+              >
+                <span className="mr-1">
+                  {stat.trendDirection === "down" ? <TrendingDown /> : <TrendingUp />}
+                </span>
+                {stat.trend}
+              </span>
+            )}
+
             {stat.badge && (
               <Badge
                 label={stat.badge}
@@ -36,28 +61,7 @@ export default function StatsCards({ state: stats }: Props) {
                 className="uppercase text-[10px] px-2 py-0.5"
               />
             )}
-          </div>
-
-          {/* Value + Trend */}
-          <div className="mt-3 flex items-center gap-3">
-            <p className="text-4xl font-semibold text-gray-900">
-              {stat.value}
-            </p>
-
-            {stat.trend && (
-              <span
-                className={`flex items-center text-sm font-medium ${
-                  stat.trendDirection === "down"
-                    ? "text-red-500"
-                    : "text-green-500"
-                }`}
-              >
-                <span className="mr-1">
-                  {stat.trendDirection === "down" ? "↘" : "↗"}
-                </span>
-                {stat.trend}
-              </span>
-            )}
+            
           </div>
 
           {/* Footer */}

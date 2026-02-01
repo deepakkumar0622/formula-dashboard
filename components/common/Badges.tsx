@@ -8,7 +8,7 @@ type BadgeVariant =
   | "default";
 
 interface BadgeProps {
-  label: string;
+  label?: string;
   variant?: BadgeVariant;
   icon?: React.ReactNode;
   className?: string;
