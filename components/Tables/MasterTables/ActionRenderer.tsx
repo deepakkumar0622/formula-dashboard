@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function ActionRenderer(props: any) {
-    const { data, api } = props;
+  const { data, api } = props;
   const softDelete = () => {
     data.deleted = !data.deleted;
     api.applyTransaction({ update: [data] });
@@ -24,16 +24,13 @@ export default function ActionRenderer(props: any) {
   };
 
   return (
-    <div className="flex gap-2 text-black flex gap-2  items-center  p-2 h-8 mt-1 rounded-lg   transition-all ease-in duration-200">
-      <Pencil className="h-4 w-4 cursor-pointer" onClick={() => onEdit({ ...data })} />
-      <Eye
+    <div className="text-black flex gap-2  items-center  p-2 h-8 mt-1 rounded-lg   transition-all ease-in duration-200">
+      <Pencil
         className="h-4 w-4 cursor-pointer"
-        onClick={softDelete}
+        onClick={() => onEdit({ ...data })}
       />
-      <Archive
-        className="h-4 w-4 cursor-pointer"
-        onClick={hardDelete}
-      />
+      <Eye className="h-4 w-4 cursor-pointer" onClick={softDelete} />
+      <Archive className="h-4 w-4 cursor-pointer" onClick={hardDelete} />
     </div>
   );
 }

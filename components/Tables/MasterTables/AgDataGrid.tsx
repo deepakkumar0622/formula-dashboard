@@ -36,10 +36,10 @@ export default function AgGrid({
     }
     return undefined;
   }, []);
-    const defCols = useMemo(() => ({ flex: 1, sortable: false }), []);
+  const defCols = useMemo(() => ({ flex: 1, sortable: false }), []);
   return (
     <>
-      <div className="ag-theme-alpine h-[450px]">
+      <div className="ag-theme-alpine h-112.5">
         <AgGridReact
           rowData={rowData}
           columnDefs={columnDefs}
@@ -52,7 +52,6 @@ export default function AgGrid({
           animateRows={true}
           detailCellRendererParams={detailCellRendererParams}
           theme={AgTheme}
-
           components={{
             actionRenderer: (props: any) => (
               <ActionRenderer

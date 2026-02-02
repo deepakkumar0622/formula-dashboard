@@ -20,11 +20,7 @@ const AgGrid = () => {
         field: "name",
         headerName: "Formula Name",
         cellRenderer: "agGroupCellRenderer",
-<<<<<<< Updated upstream
-        flex: 2, //takes 2x space of others
-=======
         flex: 2,
->>>>>>> Stashed changes
         minWidth: 220,
       },
       { field: "code", headerName: "Formula Code" },

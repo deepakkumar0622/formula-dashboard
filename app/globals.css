@@ -17,13 +17,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-<<<<<<< Updated upstream
 .row-deleted {
   opacity: 0.5;                  
   text-decoration: line-through; 
   transition: all 0.3s ease;     
 }
-=======
 
 
 /* Modal styles */
@@ -44,4 +42,3 @@ body {
 .modal-content {
   animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
->>>>>>> Stashed changes
