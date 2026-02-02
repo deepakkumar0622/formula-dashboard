@@ -21,10 +21,6 @@ export default function IngredientDetailRenderer(props: any) {
 
   const defaultColDef = useMemo(() => ({ flex: 1 }), []);
 
-  const handleAddIngredient = () => {
-    alert("Add Ingredient for Formula " + formula.name);
-  };
-
   return (
     <div className="p-4 bg-gray-50 rounded-lg">
       <div className="flex gap-5 items-center mb-3">

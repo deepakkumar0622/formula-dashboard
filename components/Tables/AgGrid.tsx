@@ -1,22 +1,30 @@
 "use client";
 
-import React, { useMemo } from "react";
-import tableData from "../../constants/table-data.json";
+import { useMemo } from "react";
+
 import "../../lib/AgGrid";
 import { AgGridReact } from "ag-grid-react";
-import ActionCellrenderer from "../Ag-Grid/ActionCellrenderer";
+import ActionCellrenderer from "../Ag-Grid/Cell Renderers/ActionCellrenderer";
 import ingredients from "@/constants/Ingredients.json";
 import IngredientDetailRenderer from "./IngredientTable";
-import StatusCellRenderer from "../Ag-Grid/StatusCellRenderer";
+import StatusCellRenderer from "../Ag-Grid/Cell Renderers/StatusCellRenderer";
+import { useFormula } from "@/context/Data";
 
 const AgGrid = () => {
+  const { formulas } = useFormula();
+  console.log(formulas);
+
   const colDefs: any = useMemo(
     () => [
       {
         field: "name",
         headerName: "Formula Name",
         cellRenderer: "agGroupCellRenderer",
-        flex: 2, // 👈 takes 2x space of others
+<<<<<<< Updated upstream
+        flex: 2, //takes 2x space of others
+=======
+        flex: 2,
+>>>>>>> Stashed changes
         minWidth: 220,
       },
       { field: "code", headerName: "Formula Code" },
@@ -42,14 +50,14 @@ const AgGrid = () => {
 
   const detailCellRendererParams = useMemo(() => {
     return (params: any) => {
-      const formulaId = params.data.id;
+      const formula = params.data;
 
-      const relatedIngredients = ingredients.filter(
-        (item) => item.formulaId === formulaId,
+      const relatedIngredients = ingredients.filter((i) =>
+        formula?.ingredients.includes(i.id),
       );
 
       return {
-        ingredients: relatedIngredients, // 👈 PASS DATA HERE
+        ingredients: relatedIngredients,
       };
     };
   }, []);
@@ -58,7 +66,7 @@ const AgGrid = () => {
     <div>
       <div className="h-[60vh] w-full">
         <AgGridReact
-          rowData={tableData}
+          rowData={formulas}
           columnDefs={colDefs}
           defaultColDef={defCols}
           masterDetail={true}
