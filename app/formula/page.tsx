@@ -2,7 +2,15 @@
 
 import AgGrid from "@/components/Tables/AgGrid";
 import Tabulator from "@/components/Tables/Tabulator";
-import { ArrowUp, Plus, PlusCircle, Table, Table2, Upload } from "lucide-react";
+import {
+  ArrowUp,
+  Import,
+  Plus,
+  PlusCircle,
+  Table,
+  Table2,
+  Upload,
+} from "lucide-react";
 import React, { useState } from "react";
 
 const page = () => {
@@ -20,7 +28,7 @@ const page = () => {
         </div>
         <div className="flex items-center gap-4">
           <button className="cursor-pointer border border-gray-200 text-black flex gap-2 items-center bg-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-zinc-300 transition-all ease-in duration-200">
-            <Upload size={15} />
+            <Import size={15} />
             Import
           </button>
           <button className="cursor-pointer border text-white flex gap-2  items-center bg-black px-4 py-2 rounded-lg font-medium text-base hover:bg-black/80 transition-all ease-in duration-200">
@@ -29,7 +37,7 @@ const page = () => {
           </button>
         </div>
       </div>
-      {/* Filter tabs */}
+
       <div className="border border-gray-200 bg-gray-100 p-3 rounded-xl flex gap-20 my-4 w-full">
         <div className="flex items-center gap-3">
           <p className="font-semibold text-gray-500 text-sm">Status :</p>

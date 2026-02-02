@@ -10,7 +10,7 @@ const statusStyles: Record<string, string> = {
   gray: "border-gray-300 bg-gray-100 text-gray-600",
   blue: "border-blue-300 bg-blue-100 text-blue-600",
   green: "border-emerald-300 bg-emerald-100 text-emerald-600",
-  "Sent to Robot": "border-amber-300 bg-amber-100 text-amber-700",
+  SenttoRobot: "border-amber-300 bg-amber-100 text-amber-700",
 };
 
 const Badge = ({ title, version, type }: Props) => {
