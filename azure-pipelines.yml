@@ -1,0 +1,44 @@
+trigger:
+  branches:
+    include:
+      - dev
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  NODE_ENV: production
+
+steps:
+  #Install Node
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "18.x"
+    displayName: "Install Node.js"
+
+  #Install dependencies (clean & reproducible)
+  - script: |
+      npm ci
+    displayName: "Install dependencies"
+
+  #Build Next.js (standalone)
+  - script: |
+      npm run build
+    displayName: "Build Next.js app"
+
+  #Prepare deployment folder
+  - script: |
+      mkdir deploy
+      cp -r .next deploy/.next
+      cp -r public deploy/public
+      cp server.js deploy/server.js
+      cp web.config deploy/web.config
+      cp package.json deploy/package.json
+    displayName: "Prepare deploy artifact"
+
+  # Publish artifact
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: deploy
+      artifactName: fsd-monster
+      publishLocation: Container
