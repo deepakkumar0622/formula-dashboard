@@ -3,7 +3,8 @@ name: Build Next.js and Push to Dev Branch
 on:
   push:
     branches:
-      - dev
+    #   - dev
+      - Teenu-Anand
 
 jobs:
   build-and-push:
