@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./tabular.css";
 import Sidebar from "@/components/Sidebar";
+import { FormulaProvider } from "@/context/Data";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex">
-        <Sidebar />
-        <main className="flex-1 p-6 bg-gray-50 ml-20">{children}</main>
+        <FormulaProvider>
+          <Sidebar />
+          <main className="flex-1 p-6 bg-gray-50 ml-20">{children}</main>
+        </FormulaProvider>
       </body>
     </html>
   );

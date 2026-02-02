@@ -4,10 +4,11 @@ import { useEffect, useRef, useCallback } from "react";
 import { TabulatorFull as Tabulator } from "tabulator-tables";
 import tableData from "../../constants/table-data.json";
 import ingredients from "../../constants/Ingredients.json";
-
+import { useRouter } from "next/navigation";
 export default function TabulatorTable() {
   const tableRef = useRef<HTMLDivElement | null>(null);
   const tableInstance = useRef<Tabulator | null>(null);
+  const router = useRouter();
 
   // 🔹 Create Child Table
   const createDetailTable = useCallback(
@@ -67,23 +68,21 @@ export default function TabulatorTable() {
         { title: "Updated", field: "updated" },
         {
           title: "Actions",
-          field: "actions",
           hozAlign: "center",
           formatter: () => {
             return `
-     <div className="">
-      <button className="cursor-pointer text-black flex gap-2 bg-white  items-center  p-2 h-8 mt-1 rounded-lg   transition-all ease-in duration-200">
-        <ArrowUpRightFromSquareIcon size={12} />
-        Open
-      </button>
-    </div>
+      <button class="open-btn cursor-pointer text-black flex gap-2 bg-white items-center p-2 h-8 mt-1 rounded-lg border hover:bg-gray-100 transition-all">
+              Open
+            </button>
     `;
           },
           cellClick: (e, cell) => {
-            const data = cell.getRow().getData();
+            const rowData = cell.getRow().getData();
 
-            if ((e.target as HTMLElement).classList.contains("view-btn")) {
-              alert("View " + data.name);
+            // check if open button clicked
+            const target = e.target as HTMLElement;
+            if (target.closest(".open-btn")) {
+              router.push(`/formula/tabulator/${rowData.id}`); // ✅ dynamic route
             }
           },
         },

@@ -1,10 +1,10 @@
 import React from "react";
-import Badge from "../common/Badge";
+import Badge from "../../common/Badge";
 
 const StatusCellRenderer = (props: any) => {
   return (
     <div>
-      <Badge title={props.value} type="green" />
+      <Badge title={props.value} type="blue" />
     </div>
   );
 };
